@@ -6,8 +6,25 @@
     ]
   },
   "scripts": {
-    "start": "yarn workspaces foreach -pi run start",
-    "build": "yarn workspaces foreach -pti run build"
+    "build": "yarn workspaces foreach -pti run build",
+    "lint": "eslint .",
+    "prettify": "prettier --write \"**/*.{js,jsx,css,scss,ts,tsx,md,json}\"",
+    "start": "yarn workspaces foreach -pi run start"
+  },
+  "devDependencies": {
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-sort-destructure-keys": "^1.4.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.1",
+    "prettier": "^2.7.0",
+    "prettier-plugin-jsdoc": "^0.3.38",
+    "prettier-plugin-packagejson": "^2.2.18",
+    "prettier-plugin-sort-json": "^0.0.2",
+    "prettier-plugin-tailwindcss": "^0.1.11"
   },
   "packageManager": "yarn@3.2.0"
 }
