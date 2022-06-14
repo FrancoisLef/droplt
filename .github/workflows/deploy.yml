@@ -7,7 +7,7 @@ on:
 
 jobs:
   lint:
-    name: ⬣ ESLint
+    name: 🔬 ESLint
     runs-on: ubuntu-latest
     steps:
       - name: 🛑 Cancel Previous Runs
@@ -51,7 +51,7 @@ jobs:
         run: yarn run prettify
 
   typecheck:
-    name: ʦ TypeScript
+    name: 🔎 TypeScript
     runs-on: ubuntu-latest
     steps:
       - name: 🛑 Cancel Previous Runs
@@ -73,7 +73,7 @@ jobs:
         run: yarn run checktype
 
   test:
-    name: ⚡ Test
+    name: 🤖 Test
     runs-on: ubuntu-latest
     steps:
       - name: 🛑 Cancel Previous Runs
@@ -91,7 +91,7 @@ jobs:
       - name: 📥 Download deps
         run: yarn install --frozen-lockfile
 
-      - name: ⚡ Run tests
+      - name: 🤖 Run tests
         run: yarn run test
 
   # build:
