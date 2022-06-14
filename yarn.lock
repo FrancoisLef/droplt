@@ -1695,7 +1695,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@droplt/prisma@workspace:packages/prisma":
+"@droplt/prisma@workspace:^, @droplt/prisma@workspace:packages/prisma":
   version: 0.0.0-use.local
   resolution: "@droplt/prisma@workspace:packages/prisma"
   dependencies:
@@ -1708,6 +1708,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@droplt/server@workspace:packages/server"
   dependencies:
+    "@droplt/prisma": "workspace:^"
     "@types/dotenv-flow": ^3.2.0
     "@types/express": ^4.17.13
     "@types/node": ^17.0.21
