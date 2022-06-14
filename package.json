@@ -15,6 +15,24 @@
     "prettify": "prettier --write \"**/*.{js,jsx,css,scss,ts,tsx,md,json}\"",
     "start": "yarn workspaces foreach -pi run start"
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{json,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "jsdocSeparateReturnsFromParam": true,
+    "jsonRecursiveSort": true,
+    "plugins": [
+      "./node_modules/prettier-plugin-jsdoc"
+    ],
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
   "devDependencies": {
     "eslint": "^8.17.0",
     "eslint-config-prettier": "^8.5.0",
