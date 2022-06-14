@@ -21,6 +21,7 @@ coverage
 
 # production
 build
+database
 
 # misc
 .vscode/settings.json

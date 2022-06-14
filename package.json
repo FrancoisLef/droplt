@@ -2,12 +2,14 @@
   "name": "@droplt/monorepo",
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/app",
+      "packages/server"
     ]
   },
   "scripts": {
     "build": "yarn workspaces foreach -pti run build",
     "checktype": "yarn workspaces foreach -pti run checktype",
+    "generate": "yarn workspaces foreach -pti run generate",
     "postinstall": "husky install",
     "lint": "eslint .",
     "prettify": "prettier --check \"**/*.{js,jsx,css,scss,ts,tsx,md,json}\"",

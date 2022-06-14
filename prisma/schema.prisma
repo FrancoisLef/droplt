@@ -1,0 +1,41 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:../db/sqlite.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator typegraphql {
+  provider = "typegraphql-prisma"
+}
+
+model Torrent {
+  torrentId   String        @id
+  name        String
+  size        Float
+  path        String
+  eta         Float?
+  files       TorrentFile[]
+  progress    Float         @default(0)
+  ratio       Float         @default(0)
+  status      String
+  downloaded  Float         @default(0)
+  uploaded    Float         @default(0)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  addedAt     DateTime
+  completedAt DateTime?
+}
+
+model TorrentFile {
+  torrentFileId String   @id @default(uuid())
+  torrentId     String?
+  name          String
+  size          Float
+  downloaded    Float    @default(0)
+  Torrent       Torrent? @relation(fields: [torrentId], references: [torrentId])
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
