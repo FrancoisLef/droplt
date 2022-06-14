@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "build": "react-scripts build && precompress build",
-    "check-type": "tsc -b",
+    "checktype": "tsc -b",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
-    "test": "react-scripts test --passWithNoTests"
+    "test": "react-scripts test"
   },
   "browserslist": {
     "production": [

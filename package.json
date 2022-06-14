@@ -7,13 +7,12 @@
   },
   "scripts": {
     "build": "yarn workspaces foreach -pti run build",
-    "check-lint": "eslint .",
-    "check-prettier": "prettier --check \"**/*.{js,jsx,css,scss,ts,tsx,md,json}\"",
-    "check-type": "yarn workspaces foreach -pti run check-type",
+    "checktype": "yarn workspaces foreach -pti run checktype",
     "postinstall": "husky install",
-    "lint": "eslint --fix .",
-    "prettify": "prettier --write \"**/*.{js,jsx,css,scss,ts,tsx,md,json}\"",
-    "start": "yarn workspaces foreach -pi run start"
+    "lint": "eslint .",
+    "prettify": "prettier --check \"**/*.{js,jsx,css,scss,ts,tsx,md,json}\"",
+    "start": "yarn workspaces foreach -pi run start",
+    "test": "yarn workspaces foreach -pti run test"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
