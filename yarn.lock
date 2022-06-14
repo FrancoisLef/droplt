@@ -1691,8 +1691,6 @@ __metadata:
     prettier: ^2.7.0
     prettier-plugin-jsdoc: ^0.3.38
     prettier-plugin-packagejson: ^2.2.18
-    prettier-plugin-sort-json: ^0.0.2
-    prettier-plugin-tailwindcss: ^0.1.11
   languageName: unknown
   linkType: soft
 
@@ -2763,7 +2761,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prettier@npm:^2.1.5, @types/prettier@npm:^2.2.0":
+"@types/prettier@npm:^2.1.5":
   version: 2.6.3
   resolution: "@types/prettier@npm:2.6.3"
   checksum: e1836699ca189fff6d2a73dc22e028b6a6f693ed1180d5998ac29fa197caf8f85aa92cb38db642e4a370e616b451cb5722ad2395dab11c78e025a1455f37d1f0
@@ -10648,26 +10646,6 @@ __metadata:
   peerDependencies:
     prettier: ">= 1.16.0"
   checksum: aee11632b4a75d357cad0e25e537491580e0d4bd9ee54a1ad68f3363e0e4e0204450fcd405368737ce92edfde568e5ac80108ab5e6a4e415bebc6af816fcf06b
-  languageName: node
-  linkType: hard
-
-"prettier-plugin-sort-json@npm:^0.0.2":
-  version: 0.0.2
-  resolution: "prettier-plugin-sort-json@npm:0.0.2"
-  dependencies:
-    "@types/prettier": ^2.2.0
-  peerDependencies:
-    prettier: ^2.1.0
-  checksum: 2ea84af329044dc5c8a60d16187dc64b47d7728463b07f6a6da03f63418e59b230b36651b366c1c18d3142372c4321b329abe173b1128b8497d9ae2ae5dc5e98
-  languageName: node
-  linkType: hard
-
-"prettier-plugin-tailwindcss@npm:^0.1.11":
-  version: 0.1.11
-  resolution: "prettier-plugin-tailwindcss@npm:0.1.11"
-  peerDependencies:
-    prettier: ">=2.2.0"
-  checksum: b06a81a22242407676de7b69342c1d69078e731e6363c7abd5877b044f2ddd83eba7281b085ea77754a49de88dcde164f394c31ae724a99fd46c0f9a4d4547a0
   languageName: node
   linkType: hard
 
