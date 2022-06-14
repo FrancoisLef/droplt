@@ -1,4 +1,4 @@
-import { add, sub } from 'date-fns';
+import { sub } from 'date-fns';
 
 import { locales } from './constants';
 import formatRelative from './formatRelative';

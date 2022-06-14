@@ -7,11 +7,11 @@ import { dateFnsLocales, FORMATS, locales } from './constants';
  *
  * _https://date-fns.org/v2.21.2/docs/format#description_
  *
- * @param {number | Date} date
- * @param {string} formatStr
- * @param {string} locale
+ * @param   {number | Date} date
+ * @param   {string}        formatStr
+ * @param   {string}        locale
  *
- * @returns {string} Formatted date
+ * @returns {string}
  */
 const formatDate = (
   date: number | Date,
