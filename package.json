@@ -1,0 +1,13 @@
+{
+  "name": "@droplt/monorepo",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "start": "yarn workspaces foreach -pi run start",
+    "build": "yarn workspaces foreach -pti run build"
+  },
+  "packageManager": "yarn@3.2.0"
+}
