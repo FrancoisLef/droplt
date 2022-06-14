@@ -26,7 +26,6 @@
   },
   "prettier": {
     "jsdocPreferCodeFences": true,
-    "jsdocSeparateReturnsFromParam": true,
     "jsdocVerticalAlignment": true,
     "singleQuote": true,
     "trailingComma": "all"

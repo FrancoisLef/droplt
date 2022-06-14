@@ -5,13 +5,11 @@ import { dateFnsLocales, FORMATS, locales } from './constants';
 /**
  * Localized **date-fns** `format` function
  *
- * _https://date-fns.org/v2.21.2/docs/format#description_
- *
  * @param   {number | Date} date
  * @param   {string}        formatStr
  * @param   {string}        locale
- *
  * @returns {string}
+ * @link https://date-fns.org/v2.21.2/docs/format#description
  */
 const formatDate = (
   date: number | Date,

@@ -5,11 +5,10 @@ import { dateFnsLocales, locales } from './constants';
 /**
  * Localized **date-fns** `formatRelative` function
  *
- * *https://date-fns.org/v2.21.2/docs/format#description*
- *
- * @param {number | Date} date
- * @param {string} baseDate
- * @returns {string} formatted relative date
+ * @param   {number | Date} date
+ * @param   {string}        baseDate
+ * @returns {string}
+ * @link https://date-fns.org/v2.21.2/docs/format#description
  */
 const formatRelative = (
   date: number | Date,
