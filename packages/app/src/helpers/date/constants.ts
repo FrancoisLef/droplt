@@ -4,71 +4,71 @@ import LocalizedStrings from 'localized-strings';
 
 /**
  * @example
- * fr "17/12/1995"
- * en "12/17/1995"
+ *   fr "17/12/1995"
+ *   en "12/17/1995"
  */
 export const P = 'P';
 
 /**
  * @example
- * fr "17 déc. 1995"
- * en "Dec 17, 1995"
+ *   fr "17 déc. 1995"
+ *   en "Dec 17, 1995"
  */
 export const PP = 'PP';
 
 /**
  * @example
- * fr "17 décembre 1995"
- * en "December 17th, 1995"
+ *   fr "17 décembre 1995"
+ *   en "December 17th, 1995"
  */
 export const PPP = 'PPP';
 
 /**
  * @example
- * fr "17 décembre 1995 03:24"
- * en "December 17th, 1995 3:24 AM"
+ *   fr "17 décembre 1995 03:24"
+ *   en "December 17th, 1995 3:24 AM"
  */
 export const PPP_p = 'PPP p';
 
 /**
  * @example
- * fr "dimanche 17 décembre 1995 à 03:24"
- * en "Sunday, December 17th, 1995 at 3:24 AM"
+ *   fr "dimanche 17 décembre 1995 à 03:24"
+ *   en "Sunday, December 17th, 1995 at 3:24 AM"
  */
 export const PPPPp = 'PPPPp';
 
 /**
  * @example
- * fr "17/12/1995, 03:24"
- * en "12/17/1995, 3:24 AM"
+ *   fr "17/12/1995, 03:24"
+ *   en "12/17/1995, 3:24 AM"
  */
 export const Pp = 'Pp';
 
 /**
  * @example
- * fr "17 déc. 1995, 03:24"
- * en "Dec 17, 1995, 3:24 AM"
+ *   fr "17 déc. 1995, 03:24"
+ *   en "Dec 17, 1995, 3:24 AM"
  */
 export const PPp = 'PPp';
 
 /**
  * @example
- * fr "17/12/1995 à 03:24"
- * en "12/17/1995 at 3:24 AM"
+ *   fr "17/12/1995 à 03:24"
+ *   en "12/17/1995 at 3:24 AM"
  */
 export const Patp = 'Patp';
 
 /**
  * @example
- * fr "17 déc. 1995 à 03:24"
- * en "Dec 17, 1995 at 3:24 AM"
+ *   fr "17 déc. 1995 à 03:24"
+ *   en "Dec 17, 1995 at 3:24 AM"
  */
 export const PPatp = 'PPatp';
 
 /**
  * @example
- * fr "17 décembre 1995 à 03:24"
- * en "December 17th, 1995 at 3:24 AM"
+ *   fr "17 décembre 1995 à 03:24"
+ *   en "December 17th, 1995 at 3:24 AM"
  */
 export const PPPatp = 'PPPatp';
 
@@ -87,9 +87,7 @@ export const FORMATS = {
   PPPatp,
 } as const;
 
-/**
- * Custom format locales
- */
+/** Custom format locales */
 export const locales = new LocalizedStrings({
   en: {
     ...FORMATS,
@@ -105,9 +103,7 @@ export const locales = new LocalizedStrings({
   },
 });
 
-/**
- * Date fns supported locales
- */
+/** Date fns supported locales */
 export const dateFnsLocales: Record<string, Locale> = {
   en: enUS,
   fr,
