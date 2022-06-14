@@ -15,13 +15,16 @@
       }
     ],
     "import/no-duplicates": "error",
+    // Adds semantic class names in development
+    // https://stackoverflow.com/a/66380966/7432967
+    // https://styled-components.com/docs/tooling#babel-macro
     "no-restricted-imports": [
       "error",
       {
         "paths": [
           {
-            "message": "Please import from styled-components/macro.",
-            "name": "styled-components"
+            "name": "styled-components",
+            "message": "Please import from styled-components/macro."
           }
         ],
         "patterns": ["!styled-components/macro"]
