@@ -22,6 +22,7 @@ coverage
 # production
 build
 database.db
+database.db-journal
 
 # misc
 .vscode/settings.json
