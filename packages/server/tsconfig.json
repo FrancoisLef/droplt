@@ -13,5 +13,5 @@
     "strictPropertyInitialization": false,
     "target": "es2021"
   },
-  "include": ["src"]
+  "include": ["src", ".env.d.ts"]
 }

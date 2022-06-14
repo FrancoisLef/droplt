@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "checktype": "tsc -b",
-    "generate": "gen-env-types .env -o src/env.d.ts && prisma generate",
+    "generate": "gen-env-types .env -o .env.d.ts",
     "start": "ts-node-dev --respawn --clear --transpile-only --rs src/index.ts"
   },
   "dependencies": {
