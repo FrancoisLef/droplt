@@ -1663,10 +1663,12 @@ __metadata:
     "@types/react": ^18.0.12
     "@types/react-dom": ^18.0.5
     autoprefixer: ^10.4.7
+    date-fns: ^2.28.0
     postcss: ^8.4.14
     precompress: ^7.0.1
     react: ^18.1.0
     react-dom: ^18.1.0
+    react-localization: ^1.0.19
     react-router-dom: ^6.3.0
     react-scripts: 5.0.1
     tailwindcss: ^3.0.24
@@ -4954,6 +4956,13 @@ __metadata:
     whatwg-mimetype: ^2.3.0
     whatwg-url: ^8.0.0
   checksum: 97caf828aac25e25e04ba6869db0f99c75e6859bb5b424ada28d3e7841941ebf08ddff3c1b1bb4585986bd507a5d54c2a716853ea6cb98af877400e637393e71
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^2.28.0":
+  version: 2.28.0
+  resolution: "date-fns@npm:2.28.0"
+  checksum: a0516b2e4f99b8bffc6cc5193349f185f195398385bdcaf07f17c2c4a24473c99d933eb0018be4142a86a6d46cb0b06be6440ad874f15e795acbedd6fd727a1f
   languageName: node
   linkType: hard
 
@@ -8370,6 +8379,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"localized-strings@npm:^0.2.0":
+  version: 0.2.4
+  resolution: "localized-strings@npm:0.2.4"
+  checksum: 678e4c8aa72ca6d2aeb836231a7c3f6c75ff3f12a3241089e237ed86d17e8b987fe563d236de39760f21f31d6b3351655e9f035308f601f748f5f6447698b00b
+  languageName: node
+  linkType: hard
+
 "locate-path@npm:^2.0.0":
   version: 2.0.0
   resolution: "locate-path@npm:2.0.0"
@@ -10932,6 +10948,17 @@ __metadata:
   version: 18.1.0
   resolution: "react-is@npm:18.1.0"
   checksum: d206a0fe6790851bff168727bfb896de02c5591695afb0c441163e8630136a3e13ee1a7ddd59fdccddcc93968b4721ae112c10f790b194b03b35a3dc13a355ef
+  languageName: node
+  linkType: hard
+
+"react-localization@npm:^1.0.19":
+  version: 1.0.19
+  resolution: "react-localization@npm:1.0.19"
+  dependencies:
+    localized-strings: ^0.2.0
+  peerDependencies:
+    react: ^18.0.0 || ^17.0.0 || ^16.0.0 || ^15.6.0
+  checksum: 0a2ee446223d653f2116226e92e1d401d07614b62820678d4d33d2c88b2486246e1c9b0d0b6464d16022ec8e1d6d1cf8f7f1bb55571de136387f9355d2a174a8
   languageName: node
   linkType: hard
 

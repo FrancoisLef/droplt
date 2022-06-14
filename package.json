@@ -7,7 +7,11 @@
   },
   "scripts": {
     "build": "yarn workspaces foreach -pti run build",
-    "lint": "eslint .",
+    "check-lint": "eslint .",
+    "check-prettier": "prettier --check \"**/*.{js,jsx,css,scss,ts,tsx,md,json}\"",
+    "check-type": "yarn workspaces foreach -pti run check-type",
+    "postinstall": "husky install",
+    "lint": "eslint --fix .",
     "prettify": "prettier --write \"**/*.{js,jsx,css,scss,ts,tsx,md,json}\"",
     "start": "yarn workspaces foreach -pi run start"
   },
