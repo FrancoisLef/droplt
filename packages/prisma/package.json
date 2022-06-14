@@ -1,0 +1,14 @@
+{
+  "name": "@droplt/prisma",
+  "version": "0.1.0",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "generate": "prisma migrate dev",
+    "start": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.15.1",
+    "prisma": "^3.15.1"
+  }
+}

@@ -1,15 +1,15 @@
 datasource db {
   provider = "sqlite"
-  url      = "file:../db/sqlite.db"
+  url      = "file:./database.db"
 }
 
 generator client {
   provider = "prisma-client-js"
 }
 
-generator typegraphql {
-  provider = "typegraphql-prisma"
-}
+// generator typegraphql {
+//   provider = "typegraphql-prisma"
+// }
 
 model Torrent {
   torrentId   String        @id
