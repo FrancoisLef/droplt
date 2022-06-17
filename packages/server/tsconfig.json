@@ -1,25 +1,10 @@
 {
   "compilerOptions": {
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "checkJs": true,
-    "esModuleInterop": true,
-    "exactOptionalPropertyTypes": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": ["es2021"],
+    "importsNotUsedAsValues": "preserve",
     "module": "node16",
     "moduleResolution": "node16",
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "outDir": "build",
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "es2021"
+    "outDir": "build"
   },
+  "extends": "@tsconfig/node16-strictest-esm/tsconfig.json",
   "include": ["src", "src/env.d.ts"]
 }
