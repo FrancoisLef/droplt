@@ -1,7 +1,7 @@
 import { Torrent as TransmissionTorrent } from '@ctrl/transmission';
 
-import { FeedTorrent } from '../../types';
-import { statusMap } from './status-map';
+import { FeedTorrent } from '../../types.js';
+import { statusMap } from './status-map.js';
 
 export const normalize = (torrent: TransmissionTorrent): FeedTorrent => {
   const addedAt = new Date(torrent.addedDate * 1000);
@@ -9,7 +9,7 @@ export const normalize = (torrent: TransmissionTorrent): FeedTorrent => {
     ? new Date(torrent.doneDate * 1000)
     : null;
 
-  const result: FeedTorrent = {
+  return {
     torrentId: torrent.hashString,
     name: torrent.name,
     size: torrent.totalSize,
@@ -23,5 +23,4 @@ export const normalize = (torrent: TransmissionTorrent): FeedTorrent => {
     addedAt,
     completedAt,
   };
-  return result;
 };

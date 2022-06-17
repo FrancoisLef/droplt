@@ -2,7 +2,8 @@
   "name": "@droplt/prisma",
   "version": "0.1.0",
   "private": true,
-  "main": "src/index.ts",
+  "type": "module",
+  "exports": "./src/index.ts",
   "scripts": {
     "generate": "prisma migrate dev",
     "start": "prisma studio"

@@ -3,15 +3,15 @@ import { prisma } from '@droplt/prisma';
 import deepEqual from 'deep-equal';
 import { AsyncTask } from 'toad-scheduler';
 
-import transmission from '../services/transmission';
+import transmission from '../services/transmission.js';
 import {
   CreatesFeed,
   DiffFeed,
   FeedTorrent,
   RawFeed,
   UpdatesFeed,
-} from '../types';
-import { normalize, sanitize, sanitizePartial } from './helpers';
+} from '../types.js';
+import { normalize, sanitize, sanitizePartial } from './helpers/index.js';
 
 class FeederJob {
   private currFeed: RawFeed = {};
@@ -21,24 +21,22 @@ class FeederJob {
     // fetch data from provider
     const listTorrents = await transmission.listTorrents();
 
-    console.log(listTorrents);
+    // build next feed
+    const nextFeed = this.formatFeed(listTorrents.arguments.torrents);
 
-    // // build next feed
-    // const nextFeed = this.formatFeed(listTorrents.arguments.torrents);
+    // compute differences between current and next feeds
+    const { creates, deletes, updates } = this.feedsDiff(nextFeed);
 
-    // // compute differences between current and next feeds
-    // const { creates, deletes, updates } = this.feedsDiff(nextFeed);
+    // create newly detected torrents
+    await this.handleCreates(creates);
 
-    // // create newly detected torrents
-    // await this.handleCreates(creates);
+    // update already detected torrents
+    await this.handleUpdates(updates);
 
-    // // update already detected torrents
-    // await this.handleUpdates(updates);
+    // delete torrents
+    await this.handleDeletes(deletes);
 
-    // // delete torrents
-    // await this.handleDeletes(deletes);
-
-    // this.currFeed = nextFeed;
+    this.currFeed = nextFeed;
   }
 
   public onError(error: Error): void {
@@ -53,31 +51,39 @@ class FeederJob {
 
     const creates: CreatesFeed = {};
 
-    const updates = Object.keys(nextFeed).reduce((acc, torrentId) => {
-      const currFeedItem = currFeed[torrentId];
-      const nextFeedItem = nextFeed[torrentId];
+    const updates = Object.entries(nextFeed).reduce(
+      (acc, [torrentId, nextFeedItem]) => {
+        const currFeedItem = currFeed[torrentId];
 
-      // torrentId doesn't exists: it's a brand new item
-      if (typeof currFeedItem === 'undefined') {
-        creates[torrentId] = nextFeedItem;
-        return acc;
-      }
-
-      // torrentId exists: compute props differences
-      Object.keys(nextFeedItem).forEach((propKey) => {
-        // if one of the prop is inequal, we need to add it to the diff
-        if (!deepEqual(currFeedItem[propKey], nextFeedItem[propKey])) {
-          // initialize torrentId diff when this is the first known inequal prop
-          if (typeof acc[torrentId] === 'undefined') {
-            acc[torrentId] = {};
-          }
-          // add prop to diff
-          acc[torrentId][propKey] = nextFeedItem[propKey];
+        // torrentId doesn't exists in previous feed: it's a brand new item
+        if (typeof currFeedItem === 'undefined') {
+          creates[torrentId] = nextFeedItem;
+          return acc;
         }
-      });
 
-      return acc;
-    }, {} as UpdatesFeed);
+        // torrentId exists: compute props differences
+        Object.entries(nextFeedItem).forEach(([propKey, propValue]) => {
+          // if one of the prop is inequal, we need to add it to the diff
+          if (!deepEqual(currFeedItem[propKey], propValue)) {
+            // initialize torrentId diff when this is the first known inequal prop
+            if (typeof acc[torrentId] === 'undefined') {
+              acc[torrentId] = {
+                [propKey]: propValue,
+              };
+            } else {
+              // add prop to diff
+              acc[torrentId] = {
+                ...acc[torrentId],
+                [propKey]: propValue,
+              };
+            }
+          }
+        });
+
+        return acc;
+      },
+      {} as UpdatesFeed,
+    );
 
     const deletes = this.detectDeletes(nextFeed, Object.keys(creates).length);
 

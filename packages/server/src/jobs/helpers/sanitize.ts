@@ -1,4 +1,4 @@
-import { FeedTorrent, PrismaTorrentPayload } from '../../types';
+import { FeedTorrent, PrismaTorrentPayload } from '../../types.js';
 
 export const sanitize = (torrent: FeedTorrent): PrismaTorrentPayload => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
