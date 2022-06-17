@@ -23,6 +23,7 @@ coverage
 build
 database.db
 database.db-journal
+tmp
 
 # misc
 .vscode/settings.json
