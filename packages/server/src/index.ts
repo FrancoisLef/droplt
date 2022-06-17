@@ -1,8 +1,12 @@
 import 'reflect-metadata';
 
-import dotenv from 'dotenv-flow';
-import express, { Application, json, RequestHandler } from 'express';
-import http from 'http';
+import * as dotenv from 'dotenv-flow';
+import * as express from 'express';
+import { Application, json, RequestHandler } from 'express';
+import * as http from 'http';
+// import { SimpleIntervalJob, ToadScheduler } from 'toad-scheduler';
+
+// import FeederJob from './jobs/feeder';
 
 dotenv.config({
   silent: true,
@@ -15,8 +19,8 @@ const {
   SERVER_PORT = 4000,
 } = process.env;
 
-const cleanJobInterval = parseInt(JOB_CLEAN_INTERVAL, 10) || 60;
-const feedJobInterval = parseInt(JOB_FEED_INTERVAL, 10) || 5;
+const cleanJobInterval = parseInt(JOB_CLEAN_INTERVAL || '60', 10);
+const feedJobInterval = parseInt(JOB_FEED_INTERVAL || '5', 10);
 
 // Init Express app
 const app: Application = express();
@@ -48,6 +52,14 @@ app.use('/', () => {
 
   // Start HTTP server and listen for connections
   await new Promise<void>((resolve) => httpServer.listen(SERVER_PORT, resolve));
+
+  // Feeder job
+  // new ToadScheduler().addSimpleIntervalJob(
+  //   new SimpleIntervalJob(
+  //     { seconds: feedJobInterval, runImmediately: true },
+  //     FeederJob,
+  //   ),
+  // );
 
   console.log(`
 ✅ Server started
