@@ -1748,15 +1748,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@droplt/prisma@workspace:packages/prisma":
-  version: 0.0.0-use.local
-  resolution: "@droplt/prisma@workspace:packages/prisma"
-  dependencies:
-    "@prisma/client": ^3.15.2
-    prisma: ^3.15.2
-  languageName: unknown
-  linkType: soft
-
 "@droplt/server@workspace:packages/server":
   version: 0.0.0-use.local
   resolution: "@droplt/server@workspace:packages/server"
@@ -1772,6 +1763,7 @@ __metadata:
     deep-equal: ^2.0.5
     dotenv-flow: ^3.2.0
     express: ^4.18.1
+    helmet: ^5.1.0
     nodemon: ^2.0.16
     prisma: ^3.15.2
     reflect-metadata: ^0.1.13
@@ -7383,6 +7375,13 @@ __metadata:
   bin:
     he: bin/he
   checksum: 3d4d6babccccd79c5c5a3f929a68af33360d6445587d628087f39a965079d84f18ce9c3d3f917ee1e3978916fc833bb8b29377c3b403f919426f91bc6965e7a7
+  languageName: node
+  linkType: hard
+
+"helmet@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "helmet@npm:5.1.0"
+  checksum: 076958ed8262b72e77276f9e7e9a5e3628b3a44bf39a64a856e919fd3d5a887d3a29b58c1729dfdb0645afd440e763d29a871e866f1fa658f91a718da82ca052
   languageName: node
   linkType: hard
 

@@ -1,9 +1,11 @@
 import 'reflect-metadata';
 
 import express, { Application, json, RequestHandler } from 'express';
+import helmet from 'helmet';
 import http from 'http';
 import { SimpleIntervalJob, ToadScheduler } from 'toad-scheduler';
 
+import CleanerJob from './jobs/cleaner.js';
 import FeederJob from './jobs/feeder.js';
 
 const {
@@ -20,7 +22,7 @@ const feedJobInterval = parseInt(JOB_FEED_INTERVAL || '5', 10);
 const app: Application = express();
 
 // Setup various HTTP headers to secure app
-// app.use(helmet());
+app.use(helmet());
 
 // Parse incoming requests with JSON payloads
 app.use(json() as RequestHandler);
@@ -52,6 +54,14 @@ app.use('/', () => {
     new SimpleIntervalJob(
       { seconds: feedJobInterval, runImmediately: true },
       FeederJob,
+    ),
+  );
+
+  // Cleaner job
+  new ToadScheduler().addSimpleIntervalJob(
+    new SimpleIntervalJob(
+      { seconds: cleanJobInterval, runImmediately: true },
+      CleanerJob,
     ),
   );
 
