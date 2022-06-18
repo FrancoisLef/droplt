@@ -1,8 +1,8 @@
 import { Torrent as TransmissionTorrent } from '@ctrl/transmission';
-import { prisma } from '@droplt/prisma';
 import deepEqual from 'deep-equal';
 import { AsyncTask } from 'toad-scheduler';
 
+import prisma from '../services/prisma.js';
 import transmission from '../services/transmission.js';
 import {
   CreatesFeed,
@@ -17,7 +17,6 @@ class FeederJob {
   private currFeed: RawFeed = {};
 
   public async run(): Promise<void> {
-    console.log('coucou');
     // fetch data from provider
     const listTorrents = await transmission.listTorrents();
 

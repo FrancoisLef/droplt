@@ -1,4 +1,4 @@
-import { PrismaClient, Torrent } from '@droplt/prisma';
+import { PrismaClient, Torrent } from '@prisma/client';
 import { Request } from 'express';
 
 export interface Context {
