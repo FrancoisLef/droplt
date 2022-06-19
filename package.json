@@ -24,13 +24,6 @@
       "prettier --write"
     ]
   },
-  "prettier": {
-    "jsdocPreferCodeFences": true,
-    "jsdocVerticalAlignment": true,
-    "jsonRecursiveSort": true,
-    "singleQuote": true,
-    "trailingComma": "all"
-  },
   "devDependencies": {
     "eslint": "^8.17.0",
     "eslint-config-prettier": "^8.5.0",

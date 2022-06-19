@@ -1,0 +1,7 @@
+{
+  "jsdocPreferCodeFences": true,
+  "jsdocVerticalAlignment": true,
+  "jsonRecursiveSort": true,
+  "singleQuote": true,
+  "trailingComma": "all"
+}
