@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "checktype": "tsc -b",
-    "generate": "prisma migrate dev && prisma generate",
+    "generate": "prisma migrate dev",
     "start": "nodemon --watch './**/*.ts' --exec 'ts-node --esm -r dotenv-flow/config' src/index.ts"
   },
   "dependencies": {
@@ -34,5 +34,8 @@
   },
   "engines": {
     "node": "16"
+  },
+  "prisma": {
+    "seed": "ts-node --esm src/seed.ts"
   }
 }

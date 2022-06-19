@@ -1,6 +1,6 @@
 datasource db {
-  provider = "sqlite"
-  url      = "file:./database.db"
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
 }
 
 generator client {
@@ -10,6 +10,22 @@ generator client {
 // generator typegraphql {
 //   provider = "typegraphql-prisma"
 // }
+
+enum UserRole {
+  ADMIN
+  CONTRIBUTOR
+  VISITOR
+}
+
+model User {
+  userId    String   @id @default(uuid())
+  email     String   @unique
+  firstName String?
+  lastName  String?
+  role      UserRole @default(VISITOR)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
 
 model Torrent {
   torrentId   String        @id
