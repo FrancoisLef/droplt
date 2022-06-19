@@ -7,13 +7,15 @@ import { normalize } from './helpers/index.js';
 class CleanerJob {
   public async run(): Promise<void> {
     // fetch data from provider
-    const listTorrents = await transmission.listTorrents();
+    const {
+      arguments: { torrents },
+    } = await transmission.listTorrents();
 
     // count torrents from database
     const dbTorrentsCount = await prisma.torrent.count();
 
     // count torrents from provider
-    const btTorrentsCount = listTorrents.arguments.torrents.length;
+    const btTorrentsCount = torrents.length;
 
     if (btTorrentsCount === dbTorrentsCount) {
       return;
@@ -27,29 +29,27 @@ class CleanerJob {
     });
 
     // get torrents id from provider
-    const btTorrentsIds = listTorrents.arguments.torrents.map(
+    const btTorrentsIds = torrents.map(
       (torrent) => normalize(torrent).torrentId,
     );
 
     // find differences
     const toDelete = dbTorrents
-      .filter((torrent) => !btTorrentsIds.includes(torrent.torrentId))
-      .map((torrent) => torrent.torrentId);
+      .filter(({ torrentId }) => !btTorrentsIds.includes(torrentId))
+      .map(({ torrentId }) => torrentId);
 
     if (toDelete.length === 0) {
       return;
     }
 
-    console.log(`Deleted ${toDelete.length}`);
-
     // delete from database
-    const transactions = toDelete.map((torrentId) => {
-      return prisma.torrent.delete({
+    const transactions = toDelete.map((torrentId) =>
+      prisma.torrent.delete({
         where: {
           torrentId,
         },
-      });
-    });
+      }),
+    );
 
     await prisma.$transaction(transactions);
   }

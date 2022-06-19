@@ -11,6 +11,7 @@
     "postinstall": "husky install",
     "lint": "eslint .",
     "prettify": "prettier --check \"**/*.{js,jsx,css,scss,ts,tsx,md,json}\"",
+    "server": "yarn workspace @droplt/server start",
     "start": "yarn workspaces foreach -pi run start",
     "test": "yarn workspaces foreach -pti run test"
   },
